@@ -1,0 +1,46 @@
+npm init -y
+npm install firebase
+npm i webpack webpack -cli -d
+
+// after setup
+src/index.js
+-------------
+webpack.confic.js
+##########
+const path=require('path')
+
+module.exports ={
+    mode: 'development',
+    devtool: 'eval-source-map',
+    entry:'./src/index.js',
+    output:{
+        path: path.resolve(__dirname,'dist'),
+        filename:'bundle.js'
+    }
+
+}
+###############
+-------------
+package.json
+add this line
+###################
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+################
+--------------
+paste firebase script to index.js
+
+npm run build
+if error try re-install node_modules meoww
+
++
+dist/index.html
++
+src/index.js
+#######
+console.log(app)
+######
+
