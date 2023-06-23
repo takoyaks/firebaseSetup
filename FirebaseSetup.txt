@@ -44,3 +44,9 @@ src/index.js
 console.log(app)
 ######
 
+
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/takoyaks/firebaseSetup.git
+git push -u origin main
