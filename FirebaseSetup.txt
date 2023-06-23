@@ -50,3 +50,5 @@ git add .
 git commit -m "Initial commit"
 git remote add origin https://github.com/takoyaks/firebaseSetup.git
 git push -u origin main
+
+save meow
