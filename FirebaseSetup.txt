@@ -52,3 +52,11 @@ git remote add origin https://github.com/takoyaks/firebaseSetup.git
 git push -u origin main
 
 save meow
+
+
+
+Firebase CLI or Command Line Interface
+Cmd
+
+npm install -g firebase-tools
+firebase -V
