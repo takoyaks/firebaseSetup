@@ -60,3 +60,4 @@ Cmd
 
 npm install -g firebase-tools
 firebase -V
+firebase login
