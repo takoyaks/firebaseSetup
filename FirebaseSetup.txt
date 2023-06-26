@@ -70,3 +70,5 @@ Set-ExecutionPolicy RemoteSigned
 
 to restrict 
 Set-ExecutionPolicy Restricted
+
+? What do you want to use as your public directory? dist
