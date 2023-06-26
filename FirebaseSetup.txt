@@ -56,7 +56,7 @@ save meow
 
 
 Firebase CLI or Command Line Interface
-Cmd
+in Cmd
 Firebase Hosting
 
 npm install -g firebase-tools
@@ -65,16 +65,18 @@ firebase login
 firebase logout
 firebase project:list
 
-if restricted
+in terminal
+firebase init
+
+if restricted go to powershell
+
 Get-ExecutionPolicy
 Set-ExecutionPolicy RemoteSigned
-
 to restrict 
 Set-ExecutionPolicy Restricted
 
+
 ? What do you want to use as your public directory? dist
-
-
 now that we have configured hosting, we can actually deploy our codes to firebase hosting now.
 
 firebase deploy
