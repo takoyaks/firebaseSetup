@@ -63,3 +63,10 @@ firebase -V
 firebase login
 firebase logout
 firebase project:list
+
+if restricted
+Get-ExecutionPolicy
+Set-ExecutionPolicy RemoteSigned
+
+to restrict 
+Set-ExecutionPolicy Restricted
