@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import {getAuth,signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword} from "firebase/auth"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,3 +21,48 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 console.log(app)
+
+//google Oauth
+const googleSignInBtn = document.querySelector('.google-sign-in');
+const provider = new GoogleAuthProvider();
+const auth = getAuth(app);
+
+//sign in
+googleSignInBtn.addEventListener('click', () =>{
+  signInWithPopup(auth,provider).then((result)=>{
+    const user = result.user;
+    alert('Hello, ${user.displayName}, You signed using Google!');
+
+  }).catch((error)=> {
+    const errorMessage = error.message;
+    alert('Error:${errorMessage}');
+  });
+});
+
+//sign in with email and password
+const epSignInBtn = document.querySelector('.ep-sign-in');
+epSignInBtn.addEventListener('click', () =>{
+  const email="iebrek@gmail.com";
+  const password = "PissedOff01";
+
+  signInWithEmailAndPassword(auth,email,password).then((result)=>{
+    alert('Hi you signed in using Email.');
+
+  }).catch((error)=>{
+    const errorMessage = error.message;
+    alert('Error:${errorMessage}');
+  });
+});
+//sign out
+const signOutBtn = document.querySelector('.sign-out');
+signOutBtn.addEventListener('click', () =>{
+  signOut(auth);
+});
+
+onAuthStateChanged(auth, (user)=>{
+  if(user){
+    alert("User has Sign In!")
+  }else{
+ alert("No User Currently")
+  }
+});
