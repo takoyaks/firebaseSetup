@@ -23,60 +23,60 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 console.log(app)
 
-// //google Oauth
-// const googleSignInBtn = document.querySelector('.google-sign-in');
-// const provider = new GoogleAuthProvider();
-// const auth = getAuth(app);
+//google Oauth
+const googleSignInBtn = document.querySelector('.google-sign-in');
+const provider = new GoogleAuthProvider();
+const auth = getAuth(app);
 
-// //sign in
-// googleSignInBtn.addEventListener('click', () =>{
-//   signInWithPopup(auth,provider).then((result)=>{
-//     const user = result.user;
-//     alert('Hello, ${user.displayName}, You signed using Google!');
+//sign in
+googleSignInBtn.addEventListener('click', () =>{
+  signInWithPopup(auth,provider).then((result)=>{
+    const user = result.user;
+    alert('Hello, ${user.displayName}, You signed using Google!');
 
-//   }).catch((error)=> {
-//     const errorMessage = error.message;
-//     alert('Error:${errorMessage}');
-//   });
-// });
+  }).catch((error)=> {
+    const errorMessage = error.message;
+    alert('Error:${errorMessage}');
+  });
+});
 
-// //sign in with email and password
-// const epSignInBtn = document.querySelector('.ep-sign-in');
-// epSignInBtn.addEventListener('click', () =>{
-//   const email="iebrek@gmail.com";
-//   const password = "PissedOff01";
+//sign in with email and password
+const epSignInBtn = document.querySelector('.ep-sign-in');
+epSignInBtn.addEventListener('click', () =>{
+  const email="iebrek@gmail.com";
+  const password = "PissedOff01";
 
-//   signInWithEmailAndPassword(auth,email,password).then((result)=>{
-//     alert('Hi you signed in using Email.');
+  signInWithEmailAndPassword(auth,email,password).then((result)=>{
+    alert('Hi you signed in using Email.');
 
-//   }).catch((error)=>{
-//     const errorMessage = error.message;
-//     alert('Error:${errorMessage}');
-//   });
-// });
-// //sign out
-// const signOutBtn = document.querySelector('.sign-out');
-// signOutBtn.addEventListener('click', () =>{
-//   signOut(auth);
-// });
+  }).catch((error)=>{
+    const errorMessage = error.message;
+    alert('Error:${errorMessage}');
+  });
+});
+//sign out
+const signOutBtn = document.querySelector('.sign-out');
+signOutBtn.addEventListener('click', () =>{
+  signOut(auth);
+});
 
-// onAuthStateChanged(auth, (user)=>{
-//   if(user){
-//     alert("User has Sign In!")
-//   }else{
-//  alert("No User Currently")
-//   }
-// });
+onAuthStateChanged(auth, (user)=>{
+  if(user){
+    alert("User has Sign In!")
+  }else{
+ alert("No User Currently")
+  }
+});
 
 //firestore
-const db = getFirestore();
-connectFirestoreEmulator(db, 'localhost', 8080);
+const db = getFirestore(app);
+//connectFirestoreEmulator(db, 'localhost', 8080);
 
 const saveBtn = document.querySelector(".save");
 saveBtn.addEventListener('click', async ()=>{
-  const collectionRef = collection(db, "gadgets")
+  const collectionRef = collection(db, "meow")
   const newGadget = await addDoc(collectionRef,{
-    name:"Phone",
+    name:"Yuki",
     os: "Android",
     version: "11"
   });
