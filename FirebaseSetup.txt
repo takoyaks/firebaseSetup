@@ -80,3 +80,14 @@ Set-ExecutionPolicy Restricted
 now that we have configured hosting, we can actually deploy our codes to firebase hosting now.
 
 firebase deploy
+
+// firebase fire storage
+package.json 
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch"
+  },
+  npm run build
+  
+npx serve dist
+
